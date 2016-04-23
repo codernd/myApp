@@ -1,0 +1,59 @@
+<div ng:controller="TourBasketController">
+<h2>Shopping Basket</h2>
+<hr>
+<div class="container" >
+  <div class="row">
+      <table class="table">
+        <thead>
+            <th class="order_item">Order Item #</th>
+            <th class="tour_name">Tour Name</th>
+            <th class="county">Tour Location</th>
+            <th class="cost">Cost Per Person</th>
+            <th class="date">Tour Date</th>
+            <th class="quantity">Number of People</th>
+            <th class="Total">Total</th>
+            <th></th>
+        </thead>
+
+
+        <tr ng-repeat="basketItem in basket | orderBy: 'order_item'" ng-switch="basket.state">
+
+        
+                <td>
+                  {{basketItem.order_item = $index + 1}}
+                </td>
+                <td>
+                  {{basketItem.tour_name }}
+                </td>
+                <td>
+                  {{basketItem.county | uppercase }}
+                </td>
+                <td>
+                  {{basketItem.cost | currency }}
+                </td>
+              <td>
+                  <input type="date" class="form-control" ng-model="basketItem.date" min-date="2016-03-25" max-date="" Required placeholder={{basketItem.date}} />
+              </td>               
+              <td>
+                  <input type="number" class="form-control" ng-model="basketItem.quantity" min="1" max="100" Required placeholder={{basketItem.quantity}} />
+              </td>  
+           
+                <td>{{basketItem.quantity * basketItem.cost | currency}}</td>
+                <td>
+                  [<a href ng:click="removeBasketItem($index)">Remove Tour</a>]
+              </td>
+         </tr>
+        <tr>
+            <td></td>
+            <td>Total:</td>
+            <td>{{total() | currency}}</td>
+            <td>
+              <a href="#/ConfirmBooking" ng:click="confirmBooking()">Confirm Booking</a>
+            </td>
+        </tr>
+        
+
+    </table>
+</div>
+</div>
+ </div>
