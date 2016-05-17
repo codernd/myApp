@@ -1,0 +1,77 @@
+<div ng-controller="TourListController">
+<h2>Ireland's Tour List</h2>
+<div class="container" >
+  <div class="row">
+       <table class="table table-striped" >
+      <thead>
+        <th class="tour_name" >Tour Name</th>
+        <th class="county">Location</th>
+        <th class="cost">Tour Cost Per Person</th>
+        <th class="duration">Duration</th>
+        <th class="description">Description</th>
+        <th class="quantity">Number of People</th>
+        <th class="date">Tour Date</th>
+        <th class="button1"></th> 
+        <th class="button2" ng-if="tours.length > 0"></th> 
+
+     </thead>
+  
+        <hr>
+        Filter by County: <input type="text" ng-model="countyText" placeholder="county name" />
+        Search by Tour: <input type="text" ng-model="nameText" placeholder="tour name" />
+        <hr>
+
+        <tbody ng-repeat="tour in tours | orderBy: 'county' | filter:{county:countyText} | filter:{tour_name:nameText}" ng-switch="tour.state" />
+  
+      
+             <!-- Default Mode Template -->
+        <tr ng-switch-default>
+           <td>{{tour.tour_name}} </td>
+          <td>{{tour.county}}</td>
+          <td>{{tour.cost | currency }}</td>
+          <td>{{tour.duration}}</td>
+          <td>{{tour.description}}</td>
+          <td>
+            <input type="number" class="form-control" ng-model="tour.quantity" min="1" max="100" ng-required="true"/>
+          </td>          
+          <td>
+            <input type="date" class="form-control" ng-model="tour.date"  min-date="2016-03-25" max-date="" ng-required="true"/> 
+          </td>  
+          <td>
+              <input type="button" class="btn btn-success" 
+                          ng-click="addBasketItem(tour)"
+                          value="Add to basket"/>
+          </td>
+        </tr> 
+
+        <tr class="info" ng-switch-when="tourAdded">
+           <td>{{tour.tour_name}}</td>
+          <td>{{tour.county}}</td>
+          <td>{{tour.cost | currency }}</td>
+          <td>{{tour.duration}}</td>
+          <td>{{tour.description}}</td>
+          <td>{{tour.quantity}}</td>
+          <td>{{tour.date}}</td>
+         <td>
+              <input type="button" class="btn btn-warning" 
+                     value="Added to basket"
+                     disabled
+                      />
+
+          </td>
+          <td>
+              <input type="button" class="btn btn-info" 
+                     ng-click="removeBasketItem(tour)"
+                     value="Remove"
+                      />
+
+          </td>
+        </tr>           
+
+      </tbody>
+      </table>
+
+    </div>
+</div>
+    </div>
+</div>

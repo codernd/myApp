@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="irishToursBookingApp" >          
+  <head>
+    <meta charset="utf-8">
+    <title>Irish Tours Booking System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+     <script type="text/javascript" src="../scripts/angular.min.js"></script>
+      <script type="text/javascript" src="../scripts/angular-route.min.js"></script>   <!-- add a reference to the script file that contains the module's code --> <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+<body >
+    
+      <nav class="navbar navbar-default" .navbar-fixed-top>
+       <div class="container-fluid">
+             
+      </div>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">IRISH TOURS BOOKING SYSTEM</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li > <a href="#/Home">Home</a></li>
+            <li ><a href="#/Tours">Tours</a></li>
+            <li ><a href="#/Basket">Basket</a> </li> 
+          </ul>
+        </div>
+      </nav>
+
+   
+      <div class="view" ng-view ></div>
+
+      <script src="../scripts/angular.min.js"></script>  
+      <script src="../scripts/angular-route.min.js"></script>
+      <script src="app.js"></script>
+</body>
+</html>
+

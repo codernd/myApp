@@ -1,0 +1,83 @@
+.view {
+  padding-top: 25px;
+  padding-bottom: 20px;
+
+}
+
+body {
+    padding: 5px;
+background-color: #d0e4fe;
+
+  font-family: calibri;
+  color: #000066;
+}
+
+
+.normal {
+  font-size: 18px;}
+
+
+button {
+    margin: 5px 5px 5px 5px;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+  
+
+
+
+
+booking-form.input.ng-invalid {
+    background-color: pink;
+ }
+booking-form.input.ng-valid {
+    background-color: #d0e4fe;
+ }
+
+booking-form {
+ margin-top: 20px;
+}
+radio label {
+text-transform: capitalize;
+}
+
+form-control:focus {
+border-color: #ccc;
+webkit-box-shadow: none;
+box-shadow: none;
+}
+
+form label em {
+  display: block;
+  font-size: 12px;
+}
+
+form textarea {
+  width: 100%;
+  min-height: 115px;
+}
+form .ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+form .ng-valid.ng-dirty {
+  border-color: #78FA89;
+}
+form .form-valid {
+ color: #FA787E;
+}
+form .form-valid.active {
+  color: #78FA89;
+}
+.required {
+  color: red;
+}
+.btn-group .btn.btn-sm.btn-info.ng-binding {
+ display: none;
+}
+.btn-group .btn.btn-sm.btn-danger.ng-binding {
+  border-radius: 3px;
+}
